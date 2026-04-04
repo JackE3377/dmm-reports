@@ -1,11 +1,12 @@
 """
 안티그레비티 — 데일리 소싱 리포트 뷰어
-HTML을 base64 data URL로 변환해 iframe에 직접 렌더링
+GitHub Pages URL을 iframe으로 렌더링
 """
 import re
-import base64
 import streamlit as st
 from pathlib import Path
+
+GITHUB_PAGES_BASE = "https://jacke3377.github.io/dmm-reports"
 
 st.set_page_config(
     page_title="안티그레비티 소싱 리포트",
@@ -50,6 +51,7 @@ with st.sidebar:
         format_func=lambda x: f"📅  {x}",
         index=0,
     )
+
     st.markdown("---")
     st.markdown(
         "<div style='font-size:0.78em;color:#718096;line-height:1.8'>"
@@ -57,34 +59,16 @@ with st.sidebar:
         unsafe_allow_html=True,
     )
 
-# ── HTML 읽기 ─────────────────────────────────────────────
-selected_file = next(f for d, f in dated_files if d == selected_date)
-
-try:
-    html_bytes = selected_file.read_bytes()
-except Exception as e:
-    st.error(f"파일 읽기 실패: {e}")
-    st.stop()
-
-# 다운로드 버튼
-with st.sidebar:
+    # 다운로드 버튼
+    selected_file = next(f for d, f in dated_files if d == selected_date)
     st.markdown("---")
     st.download_button(
         label="⬇️ HTML 다운로드",
-        data=html_bytes,
+        data=selected_file.read_bytes(),
         file_name=selected_file.name,
         mime="text/html",
     )
 
-# ── base64 data URL → iframe 렌더링 ──────────────────────
-b64 = base64.b64encode(html_bytes).decode()
-iframe_html = f"""
-<iframe
-  src="data:text/html;base64,{b64}"
-  width="100%"
-  height="7000px"
-  style="border:none; display:block;"
-  scrolling="yes"
-></iframe>
-"""
-st.markdown(iframe_html, unsafe_allow_html=True)
+# ── GitHub Pages URL로 iframe 렌더링 ─────────────────────
+page_url = f"{GITHUB_PAGES_BASE}/reports/{selected_file.name}"
+st.components.v1.iframe(page_url, height=7000, scrolling=True)
