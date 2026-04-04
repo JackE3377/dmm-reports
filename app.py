@@ -14,7 +14,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ── CSS: 사이드바 & 기본 스타일 ────────────────────────────
+# ── CSS ────────────────────────────────────────────────────
 st.markdown("""
 <style>
   [data-testid="stSidebar"] { background: #1a1a2e; }
@@ -22,7 +22,8 @@ st.markdown("""
   .stSelectbox label { color: #a0aec0 !important; font-size: 0.85em !important; }
   #MainMenu { visibility: hidden; }
   footer { visibility: hidden; }
-  .block-container { padding-top: 1rem; padding-bottom: 0; }
+  .block-container { padding-top: 1rem; padding-bottom: 0; max-width: 100% !important; }
+  iframe { border: none !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -30,10 +31,9 @@ st.markdown("""
 REPORTS_DIR = Path(__file__).parent / "reports"
 html_files = sorted(
     REPORTS_DIR.glob("*_Sourcing_Daily.html"),
-    reverse=True,  # 최신 날짜 먼저
+    reverse=True,
 )
 
-# ── 날짜 파싱 ─────────────────────────────────────────────
 dated_files = []
 for f in html_files:
     m = re.match(r"(\d{4}-\d{2}-\d{2})", f.name)
@@ -57,7 +57,7 @@ with st.sidebar:
         "날짜 선택",
         options=[d for d, _ in dated_files],
         format_func=lambda x: f"📅  {x}",
-        index=0,  # 기본: 가장 최신
+        index=0,
     )
 
     st.markdown("---")
@@ -77,5 +77,30 @@ except Exception as e:
     st.error(f"파일 읽기 실패: {e}")
     st.stop()
 
-# 전체 화면에 HTML 렌더링 (스크롤 포함)
-st.components.v1.html(html_content, height=5000, scrolling=True)
+# 다운로드 버튼 (사이드바)
+with st.sidebar:
+    st.download_button(
+        label="⬇️ HTML 다운로드",
+        data=html_content.encode("utf-8"),
+        file_name=selected_file.name,
+        mime="text/html",
+    )
+
+# HTML을 감싸서 높이 자동 계산 후 iframe 리사이즈
+wrapped_html = f"""<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+<style>html,body{{margin:0;padding:0;}}</style>
+</head>
+<body>
+{html_content}
+<script>
+window.addEventListener('load', function() {{
+  const h = document.documentElement.scrollHeight;
+  window.parent.postMessage({{isStreamlitMessage: true, type: 'streamlit:setFrameHeight', height: h}}, '*');
+}});
+</script>
+</body>
+</html>"""
+
+st.components.v1.html(wrapped_html, height=7000, scrolling=True)
