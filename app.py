@@ -1,12 +1,10 @@
 """
 안티그레비티 — 데일리 소싱 리포트 뷰어
-GitHub Pages URL을 iframe으로 렌더링
+레포의 HTML 파일을 직접 읽어서 렌더링
 """
 import re
 import streamlit as st
 from pathlib import Path
-
-GITHUB_PAGES_BASE = "https://jacke3377.github.io/dmm-reports"
 
 st.set_page_config(
     page_title="안티그레비티 소싱 리포트",
@@ -69,6 +67,6 @@ with st.sidebar:
         mime="text/html",
     )
 
-# ── GitHub Pages URL로 iframe 렌더링 ─────────────────────
-page_url = f"{GITHUB_PAGES_BASE}/reports/{selected_file.name}"
-st.components.v1.iframe(page_url, height=7000, scrolling=True)
+# ── HTML 파일 직접 읽어서 렌더링 ─────────────────────────
+html_content = selected_file.read_text(encoding="utf-8")
+st.components.v1.html(html_content, height=7000, scrolling=True)
