@@ -36,6 +36,33 @@ body { font-family: 'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:
 .badge-rising { background:#fed7d7; color:#c53030; }
 .badge-falling { background:#bee3f8; color:#2b6cb0; }
 .badge-neutral { background:#edf2f7; color:#a0aec0; }
+.section { background:#fff; border-radius:12px; padding:24px; margin-bottom:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+.section-title { font-size:1.15em; font-weight:700; margin-bottom:16px; display:flex; align-items:center; gap:8px; border-bottom:2px solid #e2e8f0; padding-bottom:12px; }
+.summary-text { line-height:1.9; font-size:.97em; color:#4a5568; }
+.summary-text strong { color:#2d3748; }
+.summary-text p { margin-bottom:12px; }
+.reco-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; }
+.reco-card { border:1px solid #e2e8f0; border-radius:10px; padding:16px; transition:box-shadow 0.2s; }
+.reco-card:hover { box-shadow:0 4px 16px rgba(0,0,0,0.12); }
+.reco-card.top1 { border-left:4px solid #f6ad55; }
+.reco-card.top2 { border-left:4px solid #68d391; }
+.reco-card.top3 { border-left:4px solid #76e4f7; }
+.reco-rank { font-size:.8em; font-weight:700; color:#718096; margin-bottom:8px; }
+.reco-name { font-weight:700; font-size:.95em; margin-bottom:6px; }
+.reco-name a { color:#2d3748; text-decoration:none; }
+.reco-name a:hover { color:#3182ce; }
+.reco-price { color:#e53e3e; font-weight:700; font-size:1.1em; margin-bottom:8px; }
+.reco-why { font-size:.85em; color:#718096; margin-bottom:6px; line-height:1.6; }
+.reco-why strong { color:#4a5568; }
+.reco-badge { display:inline-block; background:#ebf8ff; color:#2b6cb0; font-size:.78em; padding:2px 8px; border-radius:20px; font-weight:600; }
+.reco-badge.warning { background:#fffbeb; color:#b7791f; }
+.reco-badges { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
+.kw-trend-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; }
+.kw-trend-card { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; border-radius:10px; padding:14px; }
+.kw-trend-badge { display:inline-block; background:rgba(255,255,255,0.25); font-size:.72em; padding:2px 8px; border-radius:20px; font-weight:700; margin-bottom:8px; }
+.kw-trend-word { font-size:1.15em; font-weight:700; margin-bottom:4px; }
+.kw-trend-count { font-size:.75em; opacity:.85; margin-bottom:8px; }
+.kw-trend-idea { font-size:.78em; opacity:.95; line-height:1.5; }
 .kw-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; }
 .kw-chip { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; border-radius:8px; padding:10px; text-align:center; }
 .kw-chip .w { font-weight:700; font-size:1em; }
@@ -54,6 +81,118 @@ body { font-family: 'Apple SD Gothic Neo','Noto Sans KR',sans-serif; background:
   </div>
 </div>
 <div class="container">
+
+<!-- ===== 종합 요약 ===== -->
+<div class="section">
+  <div class="section-title">📊 종합 트렌드 요약</div>
+  <div class="summary-text">
+    <p>오늘은 <strong>여름 선점 시즌 본격 전환</strong>이 가장 뚜렷한 신호입니다. 스포츠/건강 카테고리에서 <strong>쿨토시 2종이 동시 신규진입(#96, #99)</strong>했고, 전체 TOP 6에 <strong>쿨 아이스 냉감 반팔 티셔츠</strong>가 안착하며 여름 냉감 제품 수요가 본격화됐습니다. 자동우산은 봄비+자외선 이중 수요로 전체 1·2위를 굳건히 지키며, 골프우산(▲4 상승)까지 TOP 10에 진입해 외출 액세서리가 전 카테고리를 견인하고 있습니다.</p>
+    <p>패션잡화에서 눈여겨볼 것은 <strong>장마철 신발방수커버 신규진입(#79)</strong>과 레인슈트 키워드 급부상입니다. 4월 초인데도 장마 관련 상품이 움직이는 건 계절 선행 지표로 해석할 수 있습니다. 가전에서는 <strong>딸깍이(키캡 LED 키링)가 가전 카테고리에도 신규진입(#22)</strong>하며 MZ 감성 소품이 패션잡화를 넘어 가전·IT 액세서리 영역으로 확산 중입니다.</p>
+    <p>이례적 신호는 <strong>패션잡화 급부상 키워드 '응급·심장약·약보관·홀더'</strong>입니다. 고령층 대상 휴대용 약 케이스 카테고리가 공개적으로 움직이는 첫 시그널로, 실버 헬스케어 소품 시장 진입 기회가 열리고 있습니다.</p>
+  </div>
+</div>
+
+<!-- ===== 소싱 추천 TOP 3 ===== -->
+<div class="section">
+  <div class="section-title">🏆 소싱 추천 TOP 3</div>
+  <div class="reco-grid">
+    <div class="reco-card top1">
+      <div class="reco-rank">추천 #1 — 스포츠/건강 · 신규진입 96위·99위</div>
+      <div class="reco-name"><a href="https://domeme.domeggook.com/s/57174706" target="_blank">여름 냉감 쿨토시 아이스 쿨링 팔토시 손등토시</a></div>
+      <div class="reco-price">도매가 1,800원 / 550원 (2종)</div>
+      <div class="reco-why"><strong>왜 기회인가?</strong> 쿨토시 2개 품목이 동일일 신규진입. 4월 초 진입은 여름 성수기 2개월 선점 가능 시점. 초저가(550원~1,800원)로 진입장벽이 낮고 야외 운전·골프·농사·배달기사 4개 세그먼트 동시 공략. 단가 대비 높은 마진 확보 가능.</div>
+      <div class="reco-badges">
+        <span class="reco-badge">🆕 동시 신규</span>
+        <span class="reco-badge">☀️ 여름 선점</span>
+        <span class="reco-badge warning">⚠️ 저가 경쟁 심화</span>
+      </div>
+    </div>
+    <div class="reco-card top2">
+      <div class="reco-rank">추천 #2 — 가전/휴대폰 · 신규진입 22위</div>
+      <div class="reco-name"><a href="https://domeme.domeggook.com/s/61745213" target="_blank">반짝반짝 LED 청축 키캡 키보드키링 5구</a></div>
+      <div class="reco-price">도매가 3,300원</div>
+      <div class="reco-why"><strong>왜 기회인가?</strong> '딸깍이' 트렌드가 패션잡화→가전 카테고리로 확장됐다는 강력한 시그널. 가전 22위 신규진입은 에어팟·아이폰17 액세서리로 포지셔닝되면서 신규 구매자층 유입. 청축+LED 조합으로 시각·청각 이중 자극, 번들 기획 최적화 상품.</div>
+      <div class="reco-badges">
+        <span class="reco-badge">🔥 크로스카테고리</span>
+        <span class="reco-badge">🎯 MZ 액세서리</span>
+        <span class="reco-badge warning">⚠️ 트렌드 단기성</span>
+      </div>
+    </div>
+    <div class="reco-card top3">
+      <div class="reco-rank">추천 #3 — 패션잡화 · 신규진입 79위</div>
+      <div class="reco-name"><a href="https://domeme.domeggook.com/s/44138451" target="_blank">장마철 신발방수커버 2p 슈즈커버</a></div>
+      <div class="reco-price">도매가 3,570원</div>
+      <div class="reco-why"><strong>왜 기회인가?</strong> 4월 초 장마 관련 신규진입은 시장이 일반인보다 2개월 먼저 움직인다는 신호. 레인슈트 키워드 급부상과 연동되어 비옷 세트 번들 구성 가능. 배달기사·학생·자전거 출퇴근족 타깃으로 5~6월 성수기 직전 진입 최적 타이밍.</div>
+      <div class="reco-badges">
+        <span class="reco-badge">☔ 장마 선점</span>
+        <span class="reco-badge">🎒 번들 구성</span>
+        <span class="reco-badge warning">⚠️ 시즌 단기</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 급부상 키워드 ===== -->
+<div class="section">
+  <div class="section-title">📈 카테고리별 급부상 키워드 · 소싱 아이디어</div>
+  <div class="kw-trend-grid">
+    <div class="kw-trend-card">
+      <div class="kw-trend-badge">🆕 전체</div>
+      <div class="kw-trend-word">딸깍이</div>
+      <div class="kw-trend-count">빈도 5 · +999%</div>
+      <div class="kw-trend-idea">키캡 LED 키링류. 가전·패션잡화 크로스카테고리 진입. 번들·세트 기획 유효.</div>
+    </div>
+    <div class="kw-trend-card">
+      <div class="kw-trend-badge">🆕 전체</div>
+      <div class="kw-trend-word">레인슈트</div>
+      <div class="kw-trend-count">빈도 3 · +999%</div>
+      <div class="kw-trend-idea">장마 선점 시그널. 신발방수커버·우산과 번들 기획.</div>
+    </div>
+    <div class="kw-trend-card">
+      <div class="kw-trend-badge">🆕 전체</div>
+      <div class="kw-trend-word">가방고리</div>
+      <div class="kw-trend-count">빈도 3 · +999%</div>
+      <div class="kw-trend-idea">딸깍이·키링과 연계. 에어팟·아이폰 액세서리 번들 구성 최적.</div>
+    </div>
+    <div class="kw-trend-card">
+      <div class="kw-trend-badge">🆕 전체</div>
+      <div class="kw-trend-word">피크닉</div>
+      <div class="kw-trend-count">빈도 3 · +999%</div>
+      <div class="kw-trend-idea">봄 야외 활동 시즌. 돗자리·보냉백·휴대용품 카테고리 확장.</div>
+    </div>
+    <div class="kw-trend-card">
+      <div class="kw-trend-badge">💊 패션잡화</div>
+      <div class="kw-trend-word">약보관·심장약</div>
+      <div class="kw-trend-count">빈도 3 · +999%</div>
+      <div class="kw-trend-idea">실버 헬스케어 휴대용 약케이스. 고령층 자녀 선물·효도 선물 포지셔닝.</div>
+    </div>
+    <div class="kw-trend-card">
+      <div class="kw-trend-badge">🍼 출산/유아</div>
+      <div class="kw-trend-word">순면턱받이</div>
+      <div class="kw-trend-count">빈도 6 · +999%</div>
+      <div class="kw-trend-idea">출산 카테고리 최고 빈도 키워드. 순면·유기농 프리미엄 라인 수요.</div>
+    </div>
+    <div class="kw-trend-card">
+      <div class="kw-trend-badge">🛏️ 가구/생활</div>
+      <div class="kw-trend-word">순면워싱여름이불</div>
+      <div class="kw-trend-count">빈도 3 · +999%</div>
+      <div class="kw-trend-idea">여름 침구 교체 시즌 진입. 배게·순면패드 번들 기획.</div>
+    </div>
+    <div class="kw-trend-card">
+      <div class="kw-trend-badge">🏃 스포츠/건강</div>
+      <div class="kw-trend-word">목토시</div>
+      <div class="kw-trend-count">빈도 5 · +999%</div>
+      <div class="kw-trend-idea">쿨토시+목토시 세트 기획. 야외 작업·농사·배달 타깃 단가 상승 효과.</div>
+    </div>
+    <div class="kw-trend-card">
+      <div class="kw-trend-badge">💡 가전</div>
+      <div class="kw-trend-word">코털·잔털제거</div>
+      <div class="kw-trend-count">빈도 9 · +999%</div>
+      <div class="kw-trend-idea">가전 최고 빈도. 전동 그루밍 기기 수요 강세. 남성 뷰티 라인 확장.</div>
+    </div>
+  </div>
+</div>
+
 <details class="cat-details"><summary><span>📊 전체(01_00)</span><span class="cat-summary-badge">100개 상품</span></summary><div class="cat-inner"><div class="sub-section"><h4>📋 전체 순위 1~100위</h4><div class="ranking-scroll"><table class="data-table"><thead><tr><th style='width:60px'>순위</th><th>상품명</th><th style='width:80px'>변동</th><th style='width:90px'>도매가</th></tr></thead><tbody><tr><td>#1</td><td><a href="https://domeme.domeggook.com/s/58088773" target="_blank">디자인 특허등록 제품 카리비너 10k 이중창살 강풍 비바람 강한 자동우산</a></td><td><span class="badge badge-neutral">-</span></td><td><strong>5,500원</strong></td></tr>
 <tr><td>#2</td><td><a href="https://domeme.domeggook.com/s/3201182" target="_blank">[도매라인]신상입고*18컬러 베이직 3단자동우산 자외선차단 후르츠 과일 접이식우산 3단암막우산 자동우산</a></td><td><span class="badge badge-neutral">-</span></td><td><strong>2,900원</strong></td></tr>
 <tr><td>#3</td><td><a href="https://domeme.domeggook.com/s/56587588" target="_blank">자외선차단 스포츠 마스크 쿨 여름 안면 얼굴 햇빛가리개 골프마스크 자전거</a></td><td><span class="badge badge-neutral">-</span></td><td><strong>850원</strong></td></tr>
